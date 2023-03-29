@@ -133,3 +133,14 @@ select {
 	background-color: #110f0f;
 	padding: 5px;
 }
+
+.info-box {
+	width: 50%;
+}
+
+code {
+	white-space: pre-wrap;
+}
+
+.info-box-short {
+}

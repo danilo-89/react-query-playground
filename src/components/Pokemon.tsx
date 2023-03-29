@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { getErrorMessage } from '../utils/errorMessageHandling';
 
-const Pokemon = () => {
+interface IProps {
+	enabled: boolean;
+}
+
+const Pokemon = ({ enabled }: IProps) => {
 	const queryInfo = useQuery({
 		queryKey: ['pokemon'],
 		queryFn: async () => {
@@ -22,7 +27,7 @@ const Pokemon = () => {
 		staleTime: 5000,
 		cacheTime: 5000,
 		// keepPreviousData: true,
-		enabled: false,
+		enabled,
 	});
 
 	// https://pokeapi.co/api/v2/pokemon-species/aegislash
