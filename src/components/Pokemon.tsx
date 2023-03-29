@@ -83,17 +83,25 @@ const Pokemon = ({ enabled }: IProps) => {
 				<div>
 					fetchStatus: <span className='message'>{queryInfo.status}</span>
 				</div>
+				<div>
+					isStale:{' '}
+					<span className='message'>
+						{queryInfo.isStale ? 'true' : 'false'}
+					</span>
+				</div>
 			</div>
 
 			{queryInfo.isError ? (
 				getErrorMessage(queryInfo.error)
 			) : (
-				<div className='App'>
-					{queryInfo.data?.map((result: any) => {
-						return <div key={result.name}>{result.name}</div>;
-					})}
-					<br />
-				</div>
+				<>
+					<ul className='data-list'>
+						<strong className='data-title'>Data:</strong>
+						{queryInfo.data?.map((result: any) => {
+							return <li key={result.name}>{result.name}</li>;
+						})}
+					</ul>
+				</>
 			)}
 		</>
 	);
